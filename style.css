@@ -1,0 +1,103 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .flex-container {
+    display: flex;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: -8px -8px 15px -8px rgba(163, 139, 139, 0.562);
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+  }
+  
+  .flex-item-left {
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    flex: 50%;
+    padding: 20px;
+  }
+  
+  input[type=text],[type=tel],[type=email],[type=button],textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    
+  }
+
+
+  .flex-item-left button {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #0ebbb2;
+    border-radius: 5px;
+    font-size:18px;
+    color: white;
+    float: left;
+    text-align: left;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #0c3a53;
+    border-radius: 10px;
+    font-size:18px;
+    color: white;
+    float: left;
+    text-align: center;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+ 
+  h1{
+    text-align: left;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid black;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid black;
+  }
+    
+  th {
+    background-color: #04AA6D;
+    color: white;
+    border: 1px solid black;
+  }
+
+  #email_error,#phone_error,#company_error,#textarea_error,#main_error{
+    text-align: left;
+    font-size: 12px;
+    color: red;
+  }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="flex-container">
+
+        <div class="flex-item-left">
+
+            <h1>Contact us!</h1>
+            <button type="submit" value="Send a Message"> <i class="fa fa-envelope"></i>&#160 Send a Message</button>
+
+        </div>
+
+        <div class="flex-item-right">
+
+
+            <form>
+
+                <input type="email" id="email" placeholder="Email" required>
+                <span id="email_error"></span><br><br>       
+               
+                <input type="text" id="phone" placeholder="Phone Number" required>
+                <span id="phone_error"></span><br><br>
+    
+                <input type="text" id="company" placeholder="Company" maxLength="20" required>
+                <span id="company_error"></span><br><br>
+    
+                <textarea id="textarea" rows="4" cols="50" placeholder="Please tell us how can we help you?" required></textarea>
+                <span id="textarea_error"></span><br><br>
+
+                <button type="submit" onclick=subdata()> Submit</button>
+                <br><span id="main_error"></span>
+
+                <br><button type="show" onclick=showdata() >Show User Data</button>
+				
+            </form>
+
+        </div>   
+    </div>    
+			<hr><br/>
+
+            <div class="data_table">
+                <table>
+                    <tr>
+                        <th>EMAIL</th>
+                        <th>PHONE</th>
+                        <th>COMPANY</th>
+                        <th>DESCRIPTION</th>
+        
+                    </tr>
+                    <tr>
+                        <td id="putemail"></td>
+                        <td id="putphone"></td>
+                        <td id="putcompany"></td>
+                        <td id="puttextarea"></td>
+                    </tr>
+                </table>
+            </div>
+	
+	
+	
+	<script>
+
+function subdata() {
+
+var err = "Please fill out this field";
+var eml=document.getElementById("email").value;
+var phone=document.getElementById("phone").value;
+var company=document.getElementById("company").value;
+var textarea=document.getElementById("textarea").value;
+
+if (eml=="") {
+    document.getElementById("email_error").innerHTML = err;
+}
+if (phone=="") {
+    document.getElementById("phone_error").innerHTML = err;
+}
+if (company=="") {
+    document.getElementById("company_error").innerHTML = err;
+}
+if(company.length > 20 ){
+    var str2=company.substring(0,20)+ "...";
+    document.getElementById("company").value=str2;
+}
+if (textarea=="") {
+    document.getElementById("textarea_error").innerHTML = err;
+}
+if (eml=="" || phone=="" || company=="" || textarea==""){
+    document.getElementById("main_error").innerHTML="One or more fields are empty "
+}
+else {
+    let var1=`Thanks for reaching ${company} , we will contact you at ${eml}`
+    alert(var1)
+    var email = document.getElementById("email").value;
+    localStorage.setItem("Email", email);
+
+    var phone = document.getElementById("phone").value;
+    localStorage.setItem("Phone", phone);
+
+    var company = document.getElementById("company").value;
+    localStorage.setItem("Company", company);
+
+    var textarea = document.getElementById("textarea").value;
+    localStorage.setItem("textarea", textarea);
+    
+}
+}
+
+function showdata() {
+var putemail1 = localStorage.getItem("Email");
+var putphone1 = localStorage.getItem("Phone");
+var putcompany1 = localStorage.getItem("Company");
+var puttextarea1 = localStorage.getItem("textarea");
+document.getElementById("putemail").innerHTML = putemail1;
+document.getElementById("putphone").innerHTML = putphone1;
+document.getElementById("putcompany").innerHTML = putcompany1;
+document.getElementById("puttextarea").innerHTML = puttextarea1;
+}
+
+	</script>
+</body>
+</html>
